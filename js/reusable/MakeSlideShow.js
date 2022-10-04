@@ -1,41 +1,50 @@
 //In order to use this function you must provide an array of list objects containing a "pic" and a "caption" along with
 //an identifier for the style you want to use.
-function MakeSlideShow (picCapList, style) {
-    for(var i = 0; i < picCapList.length; i++) {
+function MakeSlideShow (params) {
+    const foodTitle = params.title || "Untitled";
+    const picCapList = params.list || ["No given list"];
+    const style = params.style || "slideShow";
+
+    for(let i = 0; i < picCapList.length; i++) {
         if (!picCapList[i].pic || !picCapList[i].caption) {
             throw ("MakeSlideShow expects an array of objects having the 'pic' and 'caption' properties.");
         }
     }
 
-    var slideShow = document.createElement("div");
+    const slideShow = document.createElement("div");
     slideShow.classList.add(style);
 
     // add a div that will hold the image
-    var div = document.createElement("div");
+    const div = document.createElement("div");
     slideShow.appendChild(div);
 
+    //adding a title for the food genre
+    const title = document.createElement("h3");
+    title.innerHTML = foodTitle;
+    div.appendChild(title);
+
     // add image into the div & set the image's src attribute to show picture
-    var myImage = document.createElement("img");
+    const myImage = document.createElement("img");
     div.append(myImage);
 
     div.append(document.createElement("br"));
 
-    var mySpan = document.createElement("span");
+    const mySpan = document.createElement("span");
     mySpan.classList.add("captionStyle");
     div.append(mySpan);
 
     // add back button under the image (and empty paragraph)
-    var backButton = document.createElement("button");
-    backButton.innerHTML = " &lt; ";
+    const backButton = document.createElement("button");
+    backButton.innerHTML = " Previous ";
     slideShow.appendChild(backButton);
 
     // add forward button under the image (and empty paragraph)
-    var fwdButton = document.createElement("button");
-    fwdButton.innerHTML = " &gt; ";
+    const fwdButton = document.createElement("button");
+    fwdButton.innerHTML = " Next ";
     slideShow.appendChild(fwdButton);
 
     // private variable that keeps track of which image is showing
-    var picNum = 0;
+    let picNum = 0;
     setPic();
 
     function setPic() {
@@ -65,13 +74,10 @@ function MakeSlideShow (picCapList, style) {
     backButton.onclick = prevPic;
     fwdButton.onclick = nextPic;
 
-    slideShow.setPicNum = function (newNum) {
-        if ((newNum >= 0) && (newNum < picCapList.length)) {
-            picNum = newNum;
-            // change the src attribute of the image element to the desired new image)				
-            setPic();
-        }
+    slideShow.setTitle = function (newTitle) {
+        title.innerHTML = newTitle;
     };
+
 
     return slideShow;
 }

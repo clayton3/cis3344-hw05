@@ -32,6 +32,14 @@ function blogContent() {
             with what we have learned thusfar and could have what is wanted if I was more clear. I think going forward I will be trying to utilize office hours a bit more for clarification. That's more of
             an anxiety thing than anything else. I am happy with how the concept of this website is coming along so far in terms of a adding a collapsibility feature this time around.
         </p>
+        
+        <h2>Homework 5 Retrospective</h2>
+        <p>
+            I found this assignment really enjoyable due to how I got to expand on what I learned in lab a bit more this time around.
+            Learning about JSON and soon jQuery were what I was looking forward to in this class. The only difficulty for me, as usual
+            was the HTML/CSS. The further we go the more I enjoy the more programatic parts of this class but visualizing how my HTML and
+            CSS will look continues to challenge me.
+        </p>
       
     `;
     

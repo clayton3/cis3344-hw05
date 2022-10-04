@@ -1,9 +1,12 @@
 .slideShow{
     text-align:center;
     font-weight:bold;
-    color: floralwhite;
-    font-family: "Arial";
+    color: steelblue;
+    font-family: "Arial", serif;
+    border: steelblue thick solid;
     box-sizing: border-box;
+    background-color: floralwhite;
+    padding: 1rem;
 }
 
 .slideShow img { /* style images that are inside of class slideShow */
@@ -14,8 +17,13 @@
     object-fit: cover;
 }
 
+.slideShow span {
+    font-style: italic;
+    padding-bottom: .5rem;
+}
+
 .slideShow button {
-    width: 3rem;
+    width: 25%;
     margin-right: 10%;
     margin-left: 10%;
     box-shadow: 0.1rem 0.1rem 0.1rem  #444444;
